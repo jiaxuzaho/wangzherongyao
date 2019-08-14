@@ -1,0 +1,27 @@
+王者荣耀制作方法：①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇
+
+1.打开vs编辑器，使用ctrl+shift+`快捷键打开cmd控制面板，然后使用cd命令切换至f:/vue目录中，再使用mkdir node-vue-mobile
+命令在vue目录中创建node-vue-mobile项目根目录文件
+
+2.使用cd命令切换至node-vue-mobile项目根目录文件中，然后使用mkdir server命令创建server服务器目录，然后cd至该目录中，
+再执行yarn add express mongoose nodemon cors命令安装需要的插件包。注cors插件可以让前端端口号跨域访问后端端口号，
+nodemon可以自动实时重启express服务器，express是node.js的服务器，mongoose可以连接当前电脑已安装的MongoDB数据库哦！
+
+3.使用cd命令切换至node-vue-mobile项目根目录文件中，然后执行vue create web命令创建前端项目web,然后cd至该web项目,
+然后使用yarn add axios命令安装前端项目所需要的相关插件
+
+4.使用cd命令切换至node-vue-mobile项目根目录文件中，然后执行vue create admin命令创建后端项目admin,然后cd至该admin项目,
+然后使用vue add element命令安装element UI插件库，注意选择按需引入方式哦,
+然后使用yarn add axios命令安装前端项目所需要的相关插件
+
+5.打开element ui官网，拷贝需要的组件的中的“Container 布局容器”相关代码至views目录中的Main.vue文件中并进行相关修改
+⑴把（<el-container style="height:500px; border: 1px solid #eee"></el-container>
+改为<el-container style="height:100vh;"></el-container>）
+⑵把（“导航一”改为“内容管理”，“分组一”改为“分类”，“选项1”改为“新建分类”，“选项2”改为“分类列表”，为<el-menu></el-menu>
+元素添加router属性，将新建分类和分类列表的index的值改为"/categories/create"和"/categories/list"）
+⑶把（其余不需要的删掉）等等相关修改。。。
+⑷把（ <el-table></el-table>元素注释掉，改为<router-view></router-view>），意为使用路由组件来显示页面
+⑹在router.js中为Main路由添加子路由children:[{path:'/categories/create',component:CategoryEdit}]
+，注意啊必须在plugins目录中的element.js中引用并使用该组件才有效果哦！
+
+6.在views目录中创建CategoryEdit.vue文件，并编写相关代码
